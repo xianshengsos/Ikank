@@ -6,6 +6,7 @@ namespace bzm
 {
     class Notebook
     {
+        //do while  先循环后判断    
 
         // Hastable 键值集合  ArryList 集合  List泛型
         //键值对集合 Dictionary
@@ -48,5 +49,37 @@ namespace bzm
         //Console.WriteLine(randem);
 
         //Console.ReadKey();
-    }
+
+
+        //                            委托  delegate（关键字） 
+        //                            上下关联
+        //                        Action<int> ai = (x) => { Console.WriteLine("+"); };
+
+        //  Func<int,int>有返回值的方法   Action：没有返回值的方法
+
+
+
+
+        //                                      Linq语法
+
+        /*   var man = new[]
+            {
+                   new{name="李药师",age="19",sex="男"},
+                   new{name="王铁柱",age="19",sex="女"},                   创建匿名数组
+                   new{name="巢昱清",age="19",sex="女"},
+                   new{name="张德培",age="24",sex="男"},
+               };
+               */
+
+        //排序
+        // var<变量> = from<项目> in <数据源> where<表达式> orderby<表达式>    使用这个descending 倒序排列
+
+        //Contains 关键字  包含什么什么   StartsWith
+
+        // var jym = from j in man group j by j.sex;  数组分类  最后用2个foreach循环出来
+        /* into y
+                       select new {    查询指定属性有多少
+                           da = y.Key, asd = y.Count()  */
+    };
 }
+

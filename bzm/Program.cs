@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 
 namespace bzm
 {
@@ -100,11 +101,11 @@ namespace bzm
 
             #endregion
             #region 最大值
-            //int[] arry = new int[] { 1, 5, 6, 8, 9 };
-            //Console.WriteLine("以上数组请找到最大数值");
+            int[] arry = new int[] { 1, 5, 6, 8, 9 };
+            Console.WriteLine("以上数组请找到最大数值");
 
-            //Max.Pay(arry);
-            //Console.Read();
+            Max.Pay(arry);
+            Console.Read();
 
             //private static void Pay(int[] arry)
             // {
@@ -137,12 +138,14 @@ namespace bzm
             //Console.ReadKey();
             #endregion
             #region 多态深入方法
-            Console.WriteLine("****请选择你想要的东西****");
-            string jym = Console.ReadLine();
-            NotBook nb=Program.GetNotBook(jym);
-            nb.SayHello();
-            Console.ReadKey();
+            //Console.WriteLine("****请选择你想要的东西****"); 
+            //string jym = Console.ReadLine();
+            //NotBook nb=Program.GetNotBook(jym);
+            //nb.SayHello();
+            //Console.ReadKey();
             #endregion
+
+
         }
         #region 多态虚方法
         //internal class Person
@@ -268,5 +271,8 @@ namespace bzm
         }
     }
     #endregion
+
+   
+
 }
 
