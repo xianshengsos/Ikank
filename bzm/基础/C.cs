@@ -1,11 +1,12 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
+using System.Text;
 
-namespace bzm
+namespace bzm.基础
 {
-    class Program
+    class C
     {
-        static void Main(string[] args)
+        static void call()
         {
             #region 数值转换
             //int q = 2;
@@ -225,17 +226,21 @@ namespace bzm
                 case "Lenovo":
                     w = new Lenovo();
                     break;
-                case "Acer": w = new Acer();
+                case "Acer":
+                    w = new Acer();
                     break;
-                case "Dell":w = new Dell();
+                case "Dell":
+                    w = new Dell();
                     break;
-                case "IBM":w = new IBM();
+                case "IBM":
+                    w = new IBM();
                     break;
             }
 
             return w;
         }
         #endregion
+
     }
     #region 多态深入方法
     public abstract class NotBook
@@ -272,7 +277,31 @@ namespace bzm
     }
     #endregion
 
-   
+    #region 最大值
+
+    class Max
+    {
+        #region 最大值
+        public static void Pay(int[] arry)
+        {
+            int Max = 0;
+            for (int i = 0; i < arry.Length; i++)
+            {
+                if (arry[i] > Max)
+                {
+                    Max = arry[i];
+
+                }
+                else
+                {
+                    Console.WriteLine("没有最大值");
+                }
+            }
+            Console.WriteLine("最大值是{0}", Max);
+
+        }
+        #endregion
+    }
+    #endregion
 
 }
-

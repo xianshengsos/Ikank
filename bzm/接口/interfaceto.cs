@@ -4,7 +4,30 @@ using System.Text;
 
 namespace InterFacEp
 {
-    class Bubble:Sort
+    class interfaceto
+    {
+        static void call()
+        {
+            int[] q = new int[10];
+            Random r = new Random();
+            for (int i = 0; i < q.Length; i++)
+            {
+                q[i] = r.Next(1, 99);
+            }
+            Sort mao = new Bubble();
+
+            mao.shit(q);
+            Console.WriteLine("****蒋先生版权****");
+            Console.ReadKey();
+
+
+        }
+    }
+    interface Sort
+    {
+        void shit(int[] sz);
+    }
+    class Bubble : Sort
     {
         public void shit(int[] sz)
         {
