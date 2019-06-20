@@ -51,13 +51,14 @@ namespace bzm
         //Console.ReadKey();
 
 
-        //                            委托  delegate（关键字） 
+        //                            委托  delegate（关键字）     Invoke方法
         //                            上下关联
         //                        Action<int> ai = (x) => { Console.WriteLine("+"); };
 
         //  Func<int,int>有返回值的方法   Action：没有返回值的方法
 
-
+        //                扩展方法   this  静态
+        //       public staic （list<T>里面是个集合） 自定义方法名  （this 集合 ，参数（有返回值或者没有返回值） ）
 
 
         //                                      Linq语法
@@ -80,6 +81,16 @@ namespace bzm
         /* into y
                        select new {    查询指定属性有多少
                            da = y.Key, asd = y.Count()  */
+
+        // 分页   skip take（取几个）
+
+        //前台线程和后台线程唯一区别就是:应用程序必须运行完所有的前台线程才可以退出；
+        //而对于后台线程，应用程序则可以不考虑其是否已经运行完毕而直接退出，
+        //所有的后台线程在应用程序退出时都会自动结束。
+        // 程序加载时取消跨线程 control.CheckForllegalCrossThreadCalls=false
+        //他是和委托方法定义相联系的
+        //int ?可空类型
+        //sealed 密封类不能被继承
     };
 }
 

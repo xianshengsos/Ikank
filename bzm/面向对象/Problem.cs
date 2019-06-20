@@ -7,16 +7,29 @@ namespace bzm.面向对象
 {
     class Program
     {
-        static void Main(string[] args)
-        {
+       
 
-            Article Getseet = new Article(new Author { Name = "蒋先生", Id = 1 }, "标题1", "这是第一篇文章", Convert.ToDateTime("2019-1-8"));
-            Article Getseet1 = new Article(new Author { Name = "飞哥", Id = 2 }, "标题2", "这是第二篇文章", DateTime.Now);
-            Article Getseet2 = new Article(new Author { Name = "蒋先生", Id = 3 }, "标题3", "这是第三篇文章", Convert.ToDateTime("2019-5-9"));
-            Article Getseet3 = new Article(new Author { Name = "飞哥", Id = 4 }, "标题4", "这是第四篇文章", Convert.ToDateTime("2018-4-4"));
-            Article Getseet4 = new Article(new Author { Name = "小鱼", Id = 5 }, "标题5", "这是第五篇文章", Convert.ToDateTime("2019-1-1"));
-            Article Getseet5 = new Article(new Author { Name = "小鱼", Id = 6 }, "标题6", "这是第六篇文章", Convert.ToDateTime("2019-11-12"));
+        static void coll()
+        {
+         #region linq
+            Article Getseet = new Article(new user { Name = "蒋先生", Id = 1 }, "标题1", "这是第一篇文章c#", Convert.ToDateTime("2019-1-8"));
+            Article Getseet1 = new Article(new user { Name = "飞哥", Id = 2 }, "标题2", "这是第二篇文章c++", DateTime.Now);
+            Article Getseet2 = new Article(new user { Name = "蒋先生", Id = 3 }, "标题3", "这是第三篇文章net", Convert.ToDateTime("2019-5-9"));
+            Article Getseet3 = new Article(new user { Name = "飞哥", Id = 4 }, "标题4", "这是第四篇文章c#", Convert.ToDateTime("2018-4-4"));
+            Article Getseet4 = new Article(new user { Name = "小鱼", Id = 5 }, "标题5", "这是第五篇文章.net", Convert.ToDateTime("2019-1-1"));
+            Article Getseet5 = new Article(new user { Name = "小鱼", Id = 6 }, "标题6", "这是第六篇文章python", Convert.ToDateTime("2019-11-12"));
+
             List<Article> jym = new List<Article> { Getseet, Getseet1, Getseet2, Getseet3, Getseet4, Getseet5 };
+
+            #region 查询全部信息
+
+            //var seet = jym.Select(s=>s);
+            //foreach (var i in seet)
+            //{
+            //    Console.WriteLine(i.Authors.Id+i.Authors.Id+i.Title+i.Body+i.Time);
+            //}
+
+            #endregion
             #region 1.找出“飞哥”发布的文章
             //var Seet = from j in jym  where j.Authors.Name == "飞哥" select j;
 
@@ -27,10 +40,11 @@ namespace bzm.面向对象
             #endregion
             #region 2.找出2019年1月1日以后“小鱼”发布的文章
             //var Seet1 = from y in jym where y.Authors.Name == "小鱼" && y.Time > Convert.ToDateTime("2019-1-1") select y;
-           
+            //var Seet2 = jym.Where(y => y.Authors.Name == "小鱼" && y.Time > Convert.ToDateTime("2019-1-1"));
+
             //foreach (var i in Seet1)
             //{
-            //    Console.WriteLine($"在2019年1月1日小鱼发布后的文章有："+i.Body);
+            //    Console.WriteLine($"在2019年1月1日小鱼发布后的文章有：" + i.Body);
             //}
 
             #endregion
@@ -48,6 +62,22 @@ namespace bzm.面向对象
             //}
 
             #endregion
+            #region 4.统计每个用户各发布了多少篇文章
+            #endregion
+            #region 5.找出包含关键字“C#”或“.NET”的文章
+            //var seet = jym.Where(j => j.Body.Contains("c#") || j.Body.Contains("net"));
+            //foreach (var item in seet)
+            //{
+            //    Console.WriteLine($"{item.Authors.Name}：发布的文章里面包含关键字请看：{item.Body}");
+            //}
+            #endregion
+            #region 6.找出评论数量最多的文章
+            #endregion
+            #endregion
+
+
+
+           
             Console.ReadKey();
         }
 
@@ -55,7 +85,7 @@ namespace bzm.面向对象
     }
     #region 面向
     //
-    public class Author//作者的姓名
+    public class user//作者的姓名
     {
         public string Name { get; set; }
         public int Id { get; set; }
@@ -63,12 +93,12 @@ namespace bzm.面向对象
     //父类继承最大
     public class Max
     {
-        public Author Authors;
+        public user Authors;
         public string Title { get; set; }
         public string Body { get; set; }
 
 
-        public Max(Author au, string ti, string bo)
+        public Max(user au, string ti, string bo)
         {
             Authors = au;
             Title = ti;
@@ -84,10 +114,10 @@ namespace bzm.面向对象
     public class Problem : Max, IPublish/*, IAgree,IDisagree*///求助
     {
 
-        public Problem(Author au) : base(au, " ", " ")
+        public Problem(user au) : base(au, " ", " ")
         {
         }
-        public Problem(Author au, string ti, string bo) : base(au, ti, bo)
+        public Problem(user au, string ti, string bo) : base(au, ti, bo)
         {
         }
 
@@ -111,8 +141,9 @@ namespace bzm.面向对象
     //文章
     public class Article : Max, IAgree, IDisagree//文章
     {
+         
         public DateTime Time;
-        public Article(Author au, string ti, string bo, DateTime me) : base(au, ti, bo)
+        public Article(user au, string ti, string bo, DateTime me) : base(au, ti, bo)
         {
             Time = me;
         }
@@ -142,7 +173,7 @@ namespace bzm.面向对象
     //意见建议
     public class Suggest : Max, IPublish/*,IAgree,IDisagree*///意见建议
     {
-        public Suggest(Author au, string bo) : base(au, null, bo)
+        public Suggest(user au, string bo) : base(au, null, bo)
         {
         }
         public override void Comment()//评论
@@ -180,7 +211,7 @@ namespace bzm.面向对象
     //评论类
     public class Comment
     {
-
+        public void speak() { }
     }
     #endregion
 }
