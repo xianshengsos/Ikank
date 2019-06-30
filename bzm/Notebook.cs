@@ -91,6 +91,10 @@ namespace bzm
         //他是和委托方法定义相联系的
         //int ?可空类型
         //sealed 密封类不能被继承
+
+        //task 返回值 取用Result   Run直接运行
+        //RunSynchronously同步运行    
+        //ContinueWith 会返回一个新的task   Wait()确保任务完成在执行下一个任务
     };
 }
 
