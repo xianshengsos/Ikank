@@ -11,18 +11,14 @@ namespace bangbang
     class bangmin
     {
         // static void Main(string[] args)
-        //{
+        //{   
+            //取出G盘的xml文件
+           // const string sr = "G:\\后台\\登录用户\\kystack.xml";
+           // XElement element = XElement.Load(sr);
             #region 1||2||4.生成一个xml文件存到内存中
             //保存在本地G盘
             //Articlesethod.Articles();
-            #endregion
-
-            //取出G盘的xml文件
-
-            const string sr = "G:\\后台\\登录用户\\kystack.xml";
-            XElement element = XElement.Load(sr);
-            //Console.WriteLine(element);
-            //Console.ReadKey();
+            #endregion           
             #region 5.删除id=12的评论
             //取出G盘的xml文件
             //string sr = "G:\\后台\\登录用户\\luckystack.xml";
@@ -61,10 +57,8 @@ namespace bangbang
             //Console.ReadKey();
 
             #endregion
-            #region 增加（未）
+            
 
-            #endregion
-
-        //}
+       // }
     }
 }

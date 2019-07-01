@@ -9,42 +9,40 @@ using System.Threading.Tasks;
 
 namespace bangbang.异步与并行
 {
-    public class Verificationmethod//验证码方法
+    internal class Verificationmethod//验证码方法
     {
         public const string ph = "G:\\后台\\登录用户";
+        internal Bitmap image;
+        internal Graphics g;       
         Random ran = new Random();
-
-        //public  void character()//字符
-        //{
-        //    string file =ph+"\\images.gif";
-        //    Bitmap image = new Bitmap(200,100);
-
-        //    Graphics g = Graphics.FromImage(image);
-        //    g.Clear(Color.GhostWhite);
-        //    g.DrawLine(new Pen(Color.Khaki),
-        //               new Point(0, 0),
-        //               new Point(100, 50));
-        //    g.DrawString(stringText(), new Font("宋体", 20),
-        //                            new SolidBrush(Color.DarkOrchid),
-        //                            new Point(35, 16));
-
-        //    image.Save(file,ImageFormat.Jpeg);
-
-        //}
-        public void stringText()//随机字符串
+        internal Verificationmethod(int width,int height)
+        {
+            image = new Bitmap(width, height);
+        }
+        internal void canvas()
+        {
+            string file = ph + "\\images.gif";
+            g = Graphics.FromImage(image);
+            g.Clear(Color.AntiqueWhite);
+            g.DrawLine(new Pen(Color.Khaki,10),
+                       new Point(0,0),
+                       new Point(100,50));
+            g.DrawString(stringText(), new Font("宋体", 20),
+                                      new SolidBrush(Color.DarkOrchid),
+                                      new Point(35, 16));
+            image.Save(file, ImageFormat.Jpeg);
+        }      
+        public string stringText()//随机字符串
         {
             string[] present = new String[] { "先", "生", "A", "F", "百", "万", "红", "酒", "数", "组" };//文本                
             string str = present[ran.Next(0, present.Length)];
             string str1 = present[ran.Next(0, present.Length)];
             string str2 = present[ran.Next(0, present.Length)];
             string str3 = str + str1 + str2;
-            Console.WriteLine(str3);
+            return str3;
+            
         }
-
-
-
-
-        public async void canvas()//画布
+        public async void canvass()//画布
         {
             string file = ph + "\\mages.gif";
             Bitmap bi = new Bitmap(200, 100);
