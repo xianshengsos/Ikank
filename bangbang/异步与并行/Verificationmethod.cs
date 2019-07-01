@@ -12,8 +12,9 @@ namespace bangbang.异步与并行
     internal class Verificationmethod//验证码方法
     {
         public const string ph = "G:\\后台\\登录用户";
-        internal Bitmap image;
-        internal Graphics g;       
+                 
+        internal Bitmap image;       
+        internal Graphics g;      
         Random ran = new Random();
         internal Verificationmethod(int width,int height)
         {
@@ -32,7 +33,7 @@ namespace bangbang.异步与并行
                                       new Point(35, 16));
             image.Save(file, ImageFormat.Jpeg);
         }      
-        public string stringText()//随机字符串
+        internal string stringText()//随机字符串
         {
             string[] present = new String[] { "先", "生", "A", "F", "百", "万", "红", "酒", "数", "组" };//文本                
             string str = present[ran.Next(0, present.Length)];
@@ -42,29 +43,29 @@ namespace bangbang.异步与并行
             return str3;
             
         }
-        public async void canvass()//画布
+        public void canvass()//画布
         {
             string file = ph + "\\mages.gif";
-            Bitmap bi = new Bitmap(200, 100);
-            Graphics gr = Graphics.FromImage(bi);
-            gr.Clear(Color.AliceBlue);
-            //画线条
+            g = Graphics.FromImage(image);
+            g.Clear(Color.AntiqueWhite);
             Task line = Task.Run(() =>
+                 {
+                     g.DrawLine(new Pen(Color.Blue, 5),
+                         new Point(5, 8),
+                         new Point(180, 80));
+                 });
+            
+            for (int i = 0; i < 100; i++)
             {
-                gr.DrawLine(new Pen(Color.Aquamarine,10),
-                             new Point(5, 2),
-                              new Point(180, 80));
-            });
-
-            // 画点
-            Task spot = Task.Run(() =>
-            {
-                bi.SetPixel(45, 90, Color.Blue);
-            });
-            bi.Save(file, ImageFormat.Jpeg);
-
-
-
+               int Xwhdth=ran.Next(0,100);
+                int Yheight = ran.Next(0, 100);
+                Task spot = Task.Run(() =>
+                     {
+                         image.SetPixel(Xwhdth, Yheight, Color.Blue);
+                     });
+            } 
+            image.Save(file, ImageFormat.Jpeg);
+            
         }
     }
 }
