@@ -55,15 +55,17 @@ namespace bangbang.异步与并行
                          new Point(180, 80));
                  });
             
-            for (int i = 0; i < 100; i++)
-            {
+          
                int Xwhdth=ran.Next(0,100);
                 int Yheight = ran.Next(0, 100);
+                
                 Task spot = Task.Run(() =>
                      {
                          image.SetPixel(Xwhdth, Yheight, Color.Blue);
+                        
                      });
-            } 
+                Console.WriteLine(spot.Id);
+             
             image.Save(file, ImageFormat.Jpeg);
             
         }

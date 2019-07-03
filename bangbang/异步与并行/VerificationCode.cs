@@ -12,7 +12,7 @@ namespace bangbang.异步与并行
     class VerificationCode//验证码开始
     {
         public const string ph = "G:\\后台\\登录用户";
-        public static void Main(string[] args)
+        public static void Maincsa(/*string[] args*/)
         {
             Verificationmethod ve = new Verificationmethod(200,100);
             Thread tr = new Thread(ve.canvas);
@@ -20,8 +20,7 @@ namespace bangbang.异步与并行
             Console.WriteLine($"当前托管线程：{tr.ManagedThreadId}");
             
             #region 11
-            Task cans = new Task(ve.canvass);
-            
+            Task cans = new Task(ve.canvass);            
             cans.Start();
                      
             #endregion
