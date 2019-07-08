@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    一起帮·源栈欢迎您
+    <div style="background-color:aquamarine">
+        @RenderSection("ad", false)
+
+    </div>
+</head>
+<body>
+    @*<div style="background-color:aqua">
+            @RenderSection("ad")
+        </div>*@
+    @RenderBody()
+    <div class="container body-content">
+        <footer>
+            <p>&copy; 大神小班……</p>
+        </footer>
+    </div>
+</body>
+</html>
+<div>
+    @RenderSection("rounds", false)
+</div>
+<div style="text-align:center">
+    @for (int i = 0; i < 5; i++)
+    {
+
+        <br />
+        for (int j = 0; j < 2 * i + 1; j++)
+        {
+            if (i % 2 == 0)
+            {              
+                <span style="color:antiquewhite">I</span>
+            }
+            else { 
+            <span style="color:aqua">I</span>
+            }
+        }
+    }
+
+</div>

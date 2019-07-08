@@ -61,6 +61,8 @@ namespace bangbang
             Articles textid = new Articles(1, "蒋先生", "脑袋快反光了", DateTime.Now);
             textid.articlesmethod();
 
+            Guid.NewGuid();
         }
+
     }
 }

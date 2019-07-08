@@ -10,7 +10,7 @@ namespace draww
 {
     public class Text
     {
-
+        
         public const int c = 1;
 
 

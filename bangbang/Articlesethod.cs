@@ -81,7 +81,7 @@ namespace bangbang
             //写得文章
             text.InnerText = textarticles;
             ariticle.AppendChild(text);
-
+            //
             XmlElement lasting = xdt.CreateElement("time");
             lasting.InnerText = "文章发表于" + time;
             ariticle.AppendChild(lasting);
