@@ -1,0 +1,15 @@
+﻿@page
+@model ASPNETRazor.Pages.RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+<div style="border:solid 3px red" class="container">
+<div class="text-center" style="background-color:aqua" >
+<form method="post">
+    <label>用户名：</label><input asp-for="UserName"/><br/>
+   <label> &nbsp;&nbsp; 密码：</label><input type="password" asp-for="Password"/><br/>
+                             <button type="submit">提交</button>
+</form>
+    </div>
+    </div>
+    
