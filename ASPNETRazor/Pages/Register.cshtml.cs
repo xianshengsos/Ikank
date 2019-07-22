@@ -6,31 +6,58 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BLL.Repoistory;
 using Service;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASPNETRazor.Pages
 {
+
     [BindProperties]
     public class RegisterModel : PageModel
     {
-        [BindProperty]
-        public string UserName { get; set; }
-        public string Password { get; set; }
+       public regis regist { get; set; }//封装成一个属性
+        
+
+        private UserService _userService;
+        public RegisterModel()
+        {
+            _userService = new UserService();
+        }
+      
         public void OnGet()
         {
-            
+
         }
-        public void OnPost()
+        public ActionResult OnPost()
         {
-            //BLL.User.Register(new BLL.User { Name = UserName, Password = Password });
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
+
+            _userService.Register(regist.UserNameL, regist.PasswordLtwo);
             
-            // new UserRepository().Save(new BLL.User { Name = UserName, Password = Password });
-            BLL.User user = new BLL.User { Name = UserName, Password = Password };
-            //方式一
-            //new UserRepository().Save(user);
-            new UserService().Register(user);
-            //方式二
-           
-            //user.Register();
+            return RedirectToPage("About");
         }
+    }
+
+    public class regis
+    {
+        [Required(AllowEmptyStrings = false, ErrorMessage = "请输入账号")]
+        [MaxLength(9, ErrorMessage = "请输入9位数内的账号字母")]
+
+        public string UserNameL { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "请输入密码")]
+        [MaxLength(9, ErrorMessage = "请输入9位数内的密码字母")]
+        [MinLength(4, ErrorMessage = "请输入大于4位数的密码字母")]
+        public string PasswordL { get; set; }
+
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "请输入二次密码")]
+
+        [Compare("PasswordL", ErrorMessage = "2次输入密码不一致")]
+        [MaxLength(9, ErrorMessage = "请输入9位数内的密码字母")]
+        [MinLength(4, ErrorMessage = "请输入大于4位数的密码字母")]
+        public string PasswordLtwo { get; set; }
     }
 }

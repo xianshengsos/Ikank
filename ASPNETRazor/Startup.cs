@@ -50,7 +50,11 @@ namespace ASPNETRazor
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseCookiePolicy();
+            //app.UseCookiePolicy();Î´¸ÄÇ°
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                CheckConsentNeeded = X => false
+            });
 
             app.UseMvc();
         }

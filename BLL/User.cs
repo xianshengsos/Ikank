@@ -27,21 +27,13 @@ namespace BLL
          public string Password { get; set; }
         public User InvitedBy { get; set; }
 
-     public string Email { get; set; }
-        public string EmailCode { get; set; }
-        public bool EmailHasvalidated { get; set; }
+        //public string Email { get; set; }
+        //public string EmailCode { get; set; }
+        //public bool EmailHasvalidated { get; set; }
 
-        public bool IsPasswordCalid()//密码的复杂度
-        {
-            return Password.Length>=4;
-        }
-        public void Register()
-        {
-            _userRepository.Save(this);
-        }
+     
 
-
-        static string GetMd5Hash( string inp)
+      public  static string GetMd5Hash( string inp)
         {
             //1. 将字符串转换成byte[]
             //2. 进行MD5加密运算

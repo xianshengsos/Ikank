@@ -1,15 +1,38 @@
 ﻿@page
+
 @model ASPNETRazor.Pages.RegisterModel
 @{
     ViewData["Title"] = "Register";
 }
+
+
+
+
+
+<br /><br /><br /><br />
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
 <div style="border:solid 3px red" class="container">
-<div class="text-center" style="background-color:aqua" >
-<form method="post">
-    <label>用户名：</label><input asp-for="UserName"/><br/>
-   <label> &nbsp;&nbsp; 密码：</label><input type="password" asp-for="Password"/><br/>
-                             <button type="submit">提交</button>
-</form>
+    <div class="text-center" style="background-color:aqua">
+
+
+
+
+        <form method="post" asp-page="/Register">
+            <label> 注册账号：</label><input asp-for="regist.UserNameL" /><br />
+            <span style="color:red" asp-validation-for="regist.UserNameL"></span><br />
+
+            <label>注册密码：</label><input type="password" asp-for="regist.PasswordL" /><br />
+            <span style="color:red" asp-validation-for="regist.PasswordL"></span><br />
+
+            <label>二次输入密码：</label><input type="password" asp-for="regist.PasswordLtwo" /><br />
+            <span  style="color:red" asp-validation-for="regist.PasswordLtwo"></span><br />
+            <button type="submit">注册用户</button>&nbsp;&nbsp;<a href="Login">登录</a>
+        </form>
+
     </div>
-    </div>
-    
+</div>

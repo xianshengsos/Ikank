@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@*<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
+
+
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -7,93 +13,104 @@
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
-
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <img src="~/images/H6GNXYQM]WDSP~P7@K[L4(1.png" class="pull-left">
-                <a class="navbar-brand">一起帮<span style="font-size:14px;">·网络互助平台</span></a>
+<body onload="start()">
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
 
 
+                <a href="index" data-toggle="tooltip" title="" data-original-title="返回首页">
+                    <img src="~/images/H6GNXYQM]WDSP~P7@K[L4(1.png" alt="一起帮Logo" class="pull-left">
+                </a>
+                <p class="navbar-text pull-left">
+                    <span style="font-size:18px; font-weight:600;">一起帮</span>
+                    <span class="visible-md-inline visible-lg-inline">· 网络互助平台</span>
+                </p>
+                <div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-question-sign">
+                                    求助
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-header">督导班</li>
+                                <li><a href="#">疑问发布</a></li>
+                                <li><a href="#">疑问列表</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">列表</a></li>
+                                <li><a href="#">发布</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-eye-open">
+                                    督促
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">求督促</a></li>
+                                <li><a href="#">督促别</a></li>
+                                <li><a href="#">我的目标</a></li>
+                                <li><a href="#">我的督促</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-align-justify">
+                                    文章
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">列表</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-save">
+                                    APP下载
+                                </span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Android</a></li>
+                                <li><a href="#">iOS</a></li>
+
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user">
+                                   未登录
+                                    </span>
+                                    <b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">jmeter</a></li>
+                                        <li><a href="#">EJB</a></li>
+                                        <li><a href="#">Jasper Report</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">分离的链接</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#">另一个分离的链接</a></li>
+                                    </ul>
+                                    </li>
+                                </ul>
+                </div>
             </div>
-            <div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-question-sign">
-                                求助
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-header">督导班</li>
-                            <li><a href="#">疑问发布</a></li>
-                            <li><a href="#">疑问列表</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">列表</a></li>
-                            <li><a href="#">发布</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-eye-open">
-                            督促
-                                </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">求督促</a></li>
-                            <li><a href="#">督促别</a></li>
-                            <li><a href="#">我的目标</a></li>
-                            <li><a href="#">我的督促</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-align-justify">
-                            文章
-                                </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">列表</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-save">
-                            APP下载
-                                </span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Android</a></li>
-                            <li><a href="#">iOS</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span class="glyphicon glyphicon-user">
-                            Java
-                                </span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">jmeter</a></li>
-                            <li><a href="#">EJB</a></li>
-                            <li><a href="#">Jasper Report</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">分离的链接</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">另一个分离的链接</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
     @RenderBody()
-
-
+    @if (ViewData["userName"] == null)
+    {
+    <li class="dropdown-header">未登录</li>
+    }
+    else
+    {
+    <span>你好！@ViewData["userName"]</span>
+    }
 
 </body>
+
 </html>

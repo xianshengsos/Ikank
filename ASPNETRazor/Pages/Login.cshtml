@@ -1,0 +1,31 @@
+﻿@page
+@model ASPNETRazor.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
+
+
+
+
+<br /><br /><br /><br />
+<div style="border:solid 3px red" class="container">
+    <div class="text-center" style="background-color:aqua">
+
+
+
+        <form method="post" asp-page="/Login">
+            <label>用户名：</label><input type="text" name="UserName" /><br />
+            <span asp-validation-for="UserName"></span><br />
+
+            <label> &nbsp;&nbsp; 密码：</label><input type="password" name="Password" /><br />
+            <span asp-validation-for="Password"></span><br />
+            <button type="submit">提交</button>&nbsp;&nbsp;<a href="Register">注册</a>
+
+        </form>
+    </div>
+</div>
