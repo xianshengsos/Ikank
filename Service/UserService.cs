@@ -36,6 +36,7 @@ namespace Service
                 UserModel model = new UserModel();
 
                 model.Id = user.Id;
+                model.Name = user.Name;
                 model.MD5Password = user.Password;
 
                 return model;
@@ -69,6 +70,7 @@ namespace Service
                 UserModel model = new UserModel();
 
                 model.Id = user.Id;
+                model.Name = user.Name;
                 model.MD5Password = user.Password;
 
                 return model;

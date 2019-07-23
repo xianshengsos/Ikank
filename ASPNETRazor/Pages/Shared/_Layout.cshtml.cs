@@ -10,18 +10,18 @@ namespace ASPNETRazor.Pages.Shared
     public class _LayoutModel:PageModel
     {
         private const string userIdKey = "userId";
-        private const string userAuth = "userAuth";
-        private string userIdValue;
-        private string userAuthValue;
+        private const string userAuth = "auth";
+      
+      
         public virtual void OnGet()
         {
-           
+           string userIdValue;
             if (HttpContext.Request.Cookies.TryGetValue(userIdKey, out userIdValue))
             {
               UserModel model= new UserService().GetById(Convert.ToInt32(userIdValue));
                 if (model != null)
                 {
-                    if (Request.Cookies.TryGetValue(userAuth, out string userAuthValue))
+                    if (HttpContext.Request.Cookies.TryGetValue(userAuth, out string userAuthValue))
                     {
                         if (userAuthValue == model.MD5Password)
                         {
@@ -32,9 +32,8 @@ namespace ASPNETRazor.Pages.Shared
             }
           
         }
-        public void OnPost()
-        {
+      
 
-        }
+
     }
 }

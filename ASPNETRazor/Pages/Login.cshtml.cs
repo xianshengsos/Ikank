@@ -15,16 +15,16 @@ namespace ASPNETRazor.Pages
     public class LoginModel : _LayoutModel
     {
         private UserService _userService;
-        private string _userId;
+
 
         public LoginModel()
         {
             _userService = new UserService();
-        }
-      
+        } 
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "账户必须填写")]
         [MaxLength(9, ErrorMessage = "最大长度不能超出9位数")]
-       
+
         public string UserName { get; set; }
 
 
@@ -42,7 +42,7 @@ namespace ASPNETRazor.Pages
             {
                 return Page();
             }
-           UserModel model =_userService.GetLogInfo(UserName);//取已有的账号
+            UserModel model = _userService.GetLogInfo(UserName);//取已有的账号
 
 
             if (model == null)
@@ -55,15 +55,23 @@ namespace ASPNETRazor.Pages
                 ModelState.AddModelError("Password", "* 用户名或密码错误");
                 return Page();
             }
-            Response.Cookies.Append(_userId, model.Id.ToString(),
+            string uu = "userId";
+            Response.Cookies.Append(uu, model.Id.ToString(),
                 new CookieOptions
                 {
-                    
-            //Path = "/Login",
-            Expires = DateTime.Now.AddDays(1),
-            IsEssential=true
+                    //Domain定义域
+                    //Path = "/Login",
+                    Expires = DateTime.Now.AddDays(1),
+                    IsEssential = true
                 });
-            Response.Cookies.Append("auth", model.MD5Password);
+            string ss = "auth";
+            Response.Cookies.Append(ss, model.MD5Password,
+                new CookieOptions
+                {
+                    Expires = DateTime.Now.AddDays(1),
+                    IsEssential = true
+
+                });
             return RedirectToPage("About");
         }
     }
