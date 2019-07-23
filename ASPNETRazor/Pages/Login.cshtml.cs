@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+
 using System.Threading.Tasks;
 using ASPNETRazor.Pages.Shared;
 using Microsoft.AspNetCore.Http;
@@ -32,15 +33,18 @@ namespace ASPNETRazor.Pages
         [MaxLength(9, ErrorMessage = "最大长度不能超过9位数")]
         [MinLength(4, ErrorMessage = "最小的长度不能少于4位数")]
         public string Password { get; set; }
-        public override void OnGet()
+        public override ActionResult OnGet()
         {
+           
             base.OnGet();
+            return Page();
         }
         public ActionResult OnPost()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
+
             }
             UserModel model = _userService.GetLogInfo(UserName);//取已有的账号
 
@@ -70,9 +74,11 @@ namespace ASPNETRazor.Pages
                 {
                     Expires = DateTime.Now.AddDays(1),
                     IsEssential = true
-
                 });
+            
+        
             return RedirectToPage("About");
         }
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Service;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace ASPNETRazor.Pages.Shared
         private const string userAuth = "auth";
       
       
-        public virtual void OnGet()
+        public virtual ActionResult OnGet()
         {
            string userIdValue;
             if (HttpContext.Request.Cookies.TryGetValue(userIdKey, out userIdValue))
@@ -27,10 +28,15 @@ namespace ASPNETRazor.Pages.Shared
                         {
                             ViewData["userName"] = model.Name;
                         }
+                        else
+                        {
+                            Response.Cookies.Delete(userIdKey);
+                            Response.Cookies.Delete(userAuth);
+                        }
                     }
                 }
             }
-          
+            return Page();
         }
       
 

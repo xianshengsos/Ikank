@@ -7,12 +7,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using BLL.Repoistory;
 using Service;
 using System.ComponentModel.DataAnnotations;
+using ASPNETRazor.Pages.Shared;
 
 namespace ASPNETRazor.Pages
 {
 
     [BindProperties]
-    public class RegisterModel : PageModel
+    public class RegisterModel : _LayoutModel
     {
        public regis regist { get; set; }//封装成一个属性
         
@@ -23,9 +24,10 @@ namespace ASPNETRazor.Pages
             _userService = new UserService();
         }
       
-        public void OnGet()
+        public override ActionResult OnGet()
         {
-
+            base.OnGet();
+            return Page();
         }
         public ActionResult OnPost()
         {
