@@ -16,12 +16,13 @@ namespace Service
         }
         public int Id { get; set; }
         public string MD5Password { get; set; }
-        public void Register(string UserName, string Password)
+        public User Register(string UserName, string Password)
         {
                string Passwords=User.GetMd5Hash(Password);
             User user = new User { Name = UserName, Password = Passwords };
             
             _userRepository.Save(user);
+            return user;
         }
 
         public UserModel GetById(int id)
