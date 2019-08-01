@@ -1,9 +1,24 @@
 ﻿@page
 @model AboutModel
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "发布";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@Model.Message</h3>
+<br/><br /><br /><br /><br />
 
-<p>Use this area to provide additional information.</p>
+<div style="border:solid 3px red" class="container">
+    <div class="text-center" style="background-color:aqua">
+
+
+
+        <form method="post" asp-page="/About">
+            <label>标题：</label><input value="//输入标题" type="text" name="ReleaseTitle.PostNameTitle" /><br />
+            <span asp-validation-for="ReleaseTitle.PostNameTitle"></span><br />
+
+            <label> &nbsp;&nbsp; 文章：</label><br /><textarea  rows="10" cols="70" placeholder="//输入文章内容" type="text"  name="ReleaseTitle.PostContentsTitle" ></textarea><br />
+            
+            <span asp-validation-for="ReleaseTitle.PostContentsTitle"></span><br />
+            <button type="submit">点击发布</button>
+
+        </form>
+    </div>
+</div>

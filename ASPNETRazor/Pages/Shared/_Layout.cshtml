@@ -1,13 +1,25 @@
 ﻿@*<script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>*@
-
+@using Microsoft.AspNetCore.Http
+@using Service
+@using Newtonsoft.Json
+@{
+    //session登录状态
+//string jsonUser = Context.Session.GetString("UserName");
+//UserModel user = null;
+//if (!string.IsNullOrEmpty(jsonUser))
+//{
+//    user = JsonConvert.DeserializeObject<UserModel>(jsonUser);
+//}
+    }
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>           
+   
     <meta charset="utf-8">
-    <title>Bootstrap 实例 - 默认的导航栏</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -81,14 +93,16 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-user">
-                                    @if (ViewData["userName"] == null)
+                                    @*@if(  ViewData["ppp"]== null)*@
+                                     @if (ViewData["userName"] == null)
                                     {
                                         <span>未登录</span>
 
                                     }
                                     else
                                     {
-                                        <span >你好！@ViewData["userName"]</span>
+                                        @*<span>你好！@ViewData["ppp"] </span>*@
+                                         <span >你好！@ViewData["userName"]</span>
                                     }
                                 </span>
                                 <b class="caret"></b>

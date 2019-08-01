@@ -8,6 +8,7 @@ using ASPNETRazor.Pages.Shared;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 using Service;
 
 namespace ASPNETRazor.Pages
@@ -35,7 +36,7 @@ namespace ASPNETRazor.Pages
         public string Password { get; set; }
         public override ActionResult OnGet()
         {
-           
+            ViewData["Title"] = "登录";
             base.OnGet();
             return Page();
         }
@@ -75,8 +76,8 @@ namespace ASPNETRazor.Pages
                     Expires = DateTime.Now.AddDays(1),
                     IsEssential = true
                 });
-            
-        
+            //Session 获取
+            HttpContext.Session.SetString("UserName", JsonConvert.SerializeObject(model));
             return RedirectToPage("About");
         }
         

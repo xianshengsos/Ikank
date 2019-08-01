@@ -13,7 +13,7 @@ namespace ASPNETRazor.Pages
         public EscModel()
         {
         }
-
+        //退出登录页面
         public override ActionResult OnGet()
         {
             if (Request.Cookies["userId"] != null && Request.Cookies["auth"] != null)

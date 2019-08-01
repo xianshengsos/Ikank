@@ -17,7 +17,7 @@ namespace DBFactory
         }
         internal static void Create()
         {
-            _suggestService.Publish("jjjjjjjj", "",RegisterFactory.Zhangshan.Id);
+            _suggestService.Publish("蒋先生", "文章文章文章文章",RegisterFactory.Zhangshan.Id);
                
         }
     }

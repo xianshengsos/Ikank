@@ -26,6 +26,7 @@ namespace ASPNETRazor.Pages
       
         public override ActionResult OnGet()
         {
+            ViewData["Title"] = "注册";
             base.OnGet();
             return Page();
         }
@@ -35,7 +36,7 @@ namespace ASPNETRazor.Pages
             {
                 return Page();
             }
-
+       
             _userService.Register(regist.UserNameL, regist.PasswordLtwo);
             
             return RedirectToPage("About");

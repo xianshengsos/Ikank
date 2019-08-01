@@ -95,10 +95,12 @@ namespace bzm
         //task 返回值 取用Result   Run直接运行
         //RunSynchronously同步运行    
         //ContinueWith 会返回一个新的task   Wait()确保任务完成在执行下一个任务
-                   
+
         //************************************************验证
         //Comparer特性常用于密码重复一直（“类名”）
-       // RegularExpressionAttribute继承正则表达式
+        // RegularExpressionAttribute继承正则表达式
+        //Entity能和sql存储一一对应的对象
+        //联合主键用一个匿名类来 HasKey(bk => new { bk.BlogId, bk.KeywordId });
     };
 }
 
